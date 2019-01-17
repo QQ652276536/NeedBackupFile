@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "055b1bba-546c-4809-b343-26f31cdb8443",
+		"name": "删除房间(有RoomID的前提下)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://192.168.99.228:6100/api/services/app/baseRoomService/Delete",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "accept-encoding",
+						"value": "gzip, deflate"
+					},
+					{
+						"key": "accept-language",
+						"value": "zh-cn"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer ItiGNG8O6JLWPYsp5JMAousK0ZCQAzcvx9K5tRqEYuEecSoBy1CbvYAfRsq9lStjlZc2IaoRJPT7dsQWStoa3W7-0DxYkQ6MaTaFaQEo6pdS_kA0IEIQtwCCJcxin0lL9T1PQkkQwQVEGUOtiYw51alJ5Wuryvki1OaBoLjMUJZSavqpk6BJMEmMf36qcbo_yKuSpWmnI9-zMo6GeNa1zRIwLUgwnI5QyxU3y5UFTcMPqP1_K3oSCMLnB8_YXk388Dh7d2aZZ3zjc-Ap_a93Rmv7KnyDEUenDxFRzVOIe4dXRnv8gk1k13XJoe0eE-0I_b_passx5YXyISvqgQT50nb1IhqLOGYB7-l11Edgl21Jkyna4A4q8iBnPQzg9uxF3PCwoj2Yo_zr2cziaQChXcyqS676O3q8xcfDLE8_DikKs0EALQyxeBOGD1eA3Gh5OoA8q6taxNP_Iw2AvnKNBP41JL2SAYvjE8ByiPhFQ8DILCrSEU2CQQpqNy0S2Bxv7mr_LlyygCPf_1v8faxDzXdgoS-EXr6jqNkBovprZloGphH12nUV7ir3bTrA79gE"
+					},
+					{
+						"key": "connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "content-length",
+						"value": "69"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "host",
+						"value": "192.168.99.228:6100"
+					},
+					{
+						"key": "proxy-connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "referer",
+						"value": "https://servicewechat.com/wx07a214fc245adbc2/0/page-frame.html"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16C101 MicroMessenger/7.0.2(0x17000222) NetType/WIFI Language/zh_CN"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":\"1609\",\"ts\":1547696775,\"sn\":\"8dbf40ad1f37c51bea6e70060cd93a87\"}"
+				},
+				"url": {
+					"raw": "http://192.168.99.228:6100/api/services/app/baseRoomService/Delete",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"99",
+						"228"
+					],
+					"port": "6100",
+					"path": [
+						"api",
+						"services",
+						"app",
+						"baseRoomService",
+						"Delete"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

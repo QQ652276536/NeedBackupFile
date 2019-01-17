@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "3f9aab9a-7ab3-4bda-8308-9ff3adee2fb8",
+		"name": "收款(有账单ID的前提下)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://192.168.99.228:6100/api/services/app/baseAccountService/AccountReceivables",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "accept-encoding",
+						"value": "gzip, deflate"
+					},
+					{
+						"key": "accept-language",
+						"value": "zh-cn"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer 1qOkxZVSctkwW-2YHgmfEmMzc9dR9jwavxthyuKbeFBfnlSEa1BEOcCK2W18RGM4y29DeFlEA5YWc7icz_q_8CfQqNNorirEu_brFsxLbfYIhjvGMhaWZQns9yh7PLdJlWPqm-N-dVnvcSoHCxUGuiu9RDo8AbA9ifYcFdMAIctu0lWPDE_qpg22ZErIl2dqPUIiGjDsvvKjdhghrJaqRj2TdqKn3DVXSWCm2fQzkDSjDcFRKHtP6C_-wORRbHMdTB4i1d9KkwCLS3fsf_WqNWm3VDf3WqBukflXV8d4e5k_58n3TFxBh3B_3YgxRHL0eyuDuc734GZGnC9cRSzAl3aAix_cG_7ZY1enbrG1PD3DYttZ4G-xYVd14C7XSbnarmKZhmmTQeZvSLdYIPMSPxMwaU6RBU_G943n_bIuv9rkUT3xdzuaIABIaYhnNSKRhR8_x6Tn6vy17omqWHRiyM2taM9Zi5yVsWcmVxKPIG1eiXQryYlWbExysYwsY_xWKzM-pLxmxETdVZ78vISitY8RAhVva7381wZsOXrqTWNZUdsRbmnKuE5dI3HCnp8H"
+					},
+					{
+						"key": "connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "content-length",
+						"value": "133"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "host",
+						"value": "192.168.99.228:6100"
+					},
+					{
+						"key": "proxy-connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "referer",
+						"value": "https://servicewechat.com/wx07a214fc245adbc2/0/page-frame.html"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16C101 MicroMessenger/7.0.2(0x17000222) NetType/WIFI Language/zh_CN"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":\"3812\",\"pay_money\":3000,\"pay_succ_time\":\"2019-01-17\",\"pay_type\":230003,\"ts\":1547710458,\"sn\":\"a4049a23c3b63b588b8f974db9fed293\"}"
+				},
+				"url": {
+					"raw": "http://192.168.99.228:6100/api/services/app/baseAccountService/AccountReceivables",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"99",
+						"228"
+					],
+					"port": "6100",
+					"path": [
+						"api",
+						"services",
+						"app",
+						"baseAccountService",
+						"AccountReceivables"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
