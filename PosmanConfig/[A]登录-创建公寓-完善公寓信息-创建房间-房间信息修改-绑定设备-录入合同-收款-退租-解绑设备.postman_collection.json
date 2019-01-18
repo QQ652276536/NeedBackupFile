@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "a39fb863-eb63-47dd-ae55-7ff40a2ef5f7",
-		"name": "[A]创建公寓|完善公寓信息|创建房间|房间信息修改|绑定设备|录入合同|收款|退租|解绑设备",
+		"_postman_id": "fbee59fa-fb53-4bd4-923c-f702afbee397",
+		"name": "[A]登录|创建公寓|完善公寓信息|创建房间|房间信息修改|绑定设备|录入合同|收款|退租|解绑设备",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
