@@ -6,6 +6,59 @@
 	},
 	"item": [
 		{
+			"name": "登录",
+			"item": [
+				{
+					"name": "http://192.168.99.228:6100/api/Account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "78a9e1e2-656e-49ef-9936-615c5d583976",
+								"exec": [
+									"tests[\"状态200\"] = responseCode.code === 200;",
+									"tests[\"has token\"] = responseBody.has(\"token\");",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"Bearer\", jsonData.result.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{Bearer}}",
+								"type": "text"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tenancyName\": \"{{tenancyName}}\",\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{psw}}\"\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/Account",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"Account"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "创建公寓并完善公寓信息",
 			"item": [
 				{
@@ -38,7 +91,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"和睥上手除\",\n\t\"apartment_type\": 70001,\n\t\"province_id\": 1,\n\t\"city_id\": 1,\n\t\"area_id\": 2,\n\t\"street_id\": 26,\n\t\"address\": \"姑姑家咯么图找我聊天的时候\",\n\t\"max_floor\": \"2\",\n\t\"begin_floor\": \"1\",\n\t\"room_num\": \"3\",\n\t\"ts\": 1547712211,\n\t\"sn\": \"d86e91be73eadd35e3fd2528875fcb80\"\n}"
+							"raw": "{\n\t\"name\": \"拆迁公寓\",\n\t\"apartment_type\": 70001,\n\t\"province_id\": 1,\n\t\"city_id\": 1,\n\t\"area_id\": 2,\n\t\"street_id\": 26,\n\t\"address\": \"姑姑家咯么图找我聊天的时候\",\n\t\"max_floor\": \"2\",\n\t\"begin_floor\": \"1\",\n\t\"room_num\": \"3\",\n\t\"ts\": 1547712211,\n\t\"sn\": \"d86e91be73eadd35e3fd2528875fcb80\"\n}"
 						},
 						"url": {
 							"raw": "{{url}}/api/services/app/baseApartmentService/Create",
@@ -84,7 +137,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"id\":\"{{ApartmentID}}\",\"name\":\"睥月报表\",\"province_id\":1,\"city_id\":1,\"area_id\":2,\"street_id\":26,\"address\":\"姑姑家咯么图找我聊天的时候\",\"water_price\":\"10\",\"hotwater_price\":\"10\",\"am_price\":\"10\",\"remark\":\"啥时候回来呀\",\"pay_period\":\"1\",\"pay_mode\":\"210001\",\"pay_mode_day\":\"1\",\"need_contract\":false,\"deposit_type\":380001,\"ts\":1547712302,\"sn\":\"b8e3f31919fca078f4f6649dd9e7b976\"}"
+							"raw": "{\"id\":\"{{ApartmentID}}\",\"name\":\"海燕呐，你可长点心呐\",\"province_id\":1,\"city_id\":1,\"area_id\":2,\"street_id\":26,\"address\":\"姑姑家咯么图找我聊天的时候\",\"water_price\":\"10\",\"hotwater_price\":\"10\",\"am_price\":\"10\",\"remark\":\"啥时候回来呀\",\"pay_period\":\"1\",\"pay_mode\":\"210001\",\"pay_mode_day\":\"1\",\"need_contract\":false,\"deposit_type\":380001,\"ts\":1547712302,\"sn\":\"b8e3f31919fca078f4f6649dd9e7b976\"}"
 						},
 						"url": {
 							"raw": "{{url}}/api/services/app/baseApartmentService/Update",
@@ -234,7 +287,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"dev_name\":\"61D18AFA152213\",\"room_id\":\"{{RoomID}}\",\"ts\":1547695403,\"sn\":\"aff9cdf2da507d1ffa7fd3a888617381\"}"
+							"raw": "{\"dev_name\":\"61D18AFA152214\",\"room_id\":\"{{RoomID}}\",\"ts\":1547695403,\"sn\":\"aff9cdf2da507d1ffa7fd3a888617381\"}"
 						},
 						"url": {
 							"raw": "{{url}}/api/services/app/baseLockService/BindLock",
@@ -280,7 +333,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"dev_name\":\"63159199299322\",\"room_id\":\"{{RoomID}}\",\"ts\":1547695643,\"sn\":\"4ff0dfc68b0ba3d2ffb115660eddcbc2\"}"
+							"raw": "{\"dev_name\":\"63159199299323\",\"room_id\":\"{{RoomID}}\",\"ts\":1547695643,\"sn\":\"4ff0dfc68b0ba3d2ffb115660eddcbc2\"}"
 						},
 						"url": {
 							"raw": "{{url}}/api/services/app/baseAmmeterService/BindAmmeter",
@@ -326,7 +379,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"dev_name\":\"62284805781434\",\"room_id\":\"{{RoomID}}\",\"ts\":1547695782,\"sn\":\"bead063d90e3f0b38be470ac392ddcfa\"}"
+							"raw": "{\"dev_name\":\"62284805781435\",\"room_id\":\"{{RoomID}}\",\"ts\":1547695782,\"sn\":\"bead063d90e3f0b38be470ac392ddcfa\"}"
 						},
 						"url": {
 							"raw": "{{url}}/api/services/app/baseWatermeterService/BindWatermeter",
@@ -372,7 +425,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"dev_name\":\"62284801784345\",\"room_id\":\"{{RoomID}}\",\"ts\":1547695832,\"sn\":\"42851a05cc6925b8c48d859bd0d9dec4\"}"
+							"raw": "{\"dev_name\":\"62284801784346\",\"room_id\":\"{{RoomID}}\",\"ts\":1547695832,\"sn\":\"42851a05cc6925b8c48d859bd0d9dec4\"}"
 						},
 						"url": {
 							"raw": "{{url}}/api/services/app/basewaterMeterHotService/BindwaterMeter",
@@ -514,48 +567,12 @@
 						"method": "POST",
 						"header": [
 							{
-								"key": "accept",
-								"value": "*/*"
-							},
-							{
-								"key": "accept-encoding",
-								"value": "gzip, deflate"
-							},
-							{
-								"key": "accept-language",
-								"value": "zh-cn"
-							},
-							{
 								"key": "authorization",
-								"value": "Bearer 1qOkxZVSctkwW-2YHgmfEmMzc9dR9jwavxthyuKbeFBfnlSEa1BEOcCK2W18RGM4y29DeFlEA5YWc7icz_q_8CfQqNNorirEu_brFsxLbfYIhjvGMhaWZQns9yh7PLdJlWPqm-N-dVnvcSoHCxUGuiu9RDo8AbA9ifYcFdMAIctu0lWPDE_qpg22ZErIl2dqPUIiGjDsvvKjdhghrJaqRj2TdqKn3DVXSWCm2fQzkDSjDcFRKHtP6C_-wORRbHMdTB4i1d9KkwCLS3fsf_WqNWm3VDf3WqBukflXV8d4e5k_58n3TFxBh3B_3YgxRHL0eyuDuc734GZGnC9cRSzAl3aAix_cG_7ZY1enbrG1PD3DYttZ4G-xYVd14C7XSbnarmKZhmmTQeZvSLdYIPMSPxMwaU6RBU_G943n_bIuv9rkUT3xdzuaIABIaYhnNSKRhR8_x6Tn6vy17omqWHRiyM2taM9Zi5yVsWcmVxKPIG1eiXQryYlWbExysYwsY_xWKzM-pLxmxETdVZ78vISitY8RAhVva7381wZsOXrqTWNZUdsRbmnKuE5dI3HCnp8H"
-							},
-							{
-								"key": "connection",
-								"value": "keep-alive"
-							},
-							{
-								"key": "content-length",
-								"value": "99"
+								"value": "Bearer {{Bearer}}"
 							},
 							{
 								"key": "content-type",
 								"value": "application/json"
-							},
-							{
-								"key": "host",
-								"value": "192.168.99.228:6100"
-							},
-							{
-								"key": "proxy-connection",
-								"value": "keep-alive"
-							},
-							{
-								"key": "referer",
-								"value": "https://servicewechat.com/wx07a214fc245adbc2/0/page-frame.html"
-							},
-							{
-								"key": "user-agent",
-								"value": "Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16C101 MicroMessenger/7.0.2(0x17000222) NetType/WIFI Language/zh_CN"
 							}
 						],
 						"body": {
@@ -869,6 +886,57 @@
 								"app",
 								"baseWatermeterHotService",
 								"UnBindWatermeter"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "删除公寓",
+			"item": [
+				{
+					"name": "http://192.168.99.228:6100/api/services/app/baseApartmentService/Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a8512993-b0a8-4005-a594-8518b246d330",
+								"exec": [
+									"tests[\"状态200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{Bearer}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":\"{{ApartmentID}}\",\"ts\":1547713040,\"sn\":\"939d478d1ce96bb8f42304f369f2b55b\"}"
+						},
+						"url": {
+							"raw": "{{url}}/api/services/app/baseApartmentService/Delete",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"services",
+								"app",
+								"baseApartmentService",
+								"Delete"
 							]
 						}
 					},
