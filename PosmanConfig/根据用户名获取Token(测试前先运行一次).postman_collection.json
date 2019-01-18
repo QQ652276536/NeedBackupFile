@@ -1,26 +1,21 @@
 {
 	"info": {
-		"_postman_id": "afa65bc7-c83b-4f28-909d-83fb966309cf",
+		"_postman_id": "70297e76-0ec4-436a-821f-674cd7290037",
 		"name": "根据用户名获取Token(测试前先运行一次)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "根据用户名密码获取token",
+			"name": "http://192.168.99.228:6100/api/Account",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"type": "text/javascript",
+						"id": "aabd6873-cc6a-4805-8c3e-d0d1115eda6a",
 						"exec": [
-							"tests[\"状态200\"] = responseCode.code === 200;",
-							"tests[\"has token\"] = responseBody.has(\"token\");",
-							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"Bearer\", jsonData.result.token);",
-							"",
-							"//跳转到 Request3 接口",
-							"//postman.setNextRequest(\"Request3\");"
-						]
+							"tests[\"状态200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
 					}
 				}
 			],
@@ -28,7 +23,12 @@
 				"method": "POST",
 				"header": [
 					{
-						"key": "Content-Type",
+						"key": "authorization",
+						"value": "Bearer {{Bearer}}",
+						"type": "text"
+					},
+					{
+						"key": "content-type",
 						"value": "application/json"
 					}
 				],
