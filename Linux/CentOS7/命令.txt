@@ -1,0 +1,11 @@
+CentOS7命令
+
+###防火墙（firewall）操作命令
+#查询端口是否开放
+firewall-cmd --query-port=端口号/tcp
+#开放端口
+firewall-cmd --permanent --add-port=端口号/tcp
+#移除端口
+firewall-cmd --permanent --remove-port=端口号/tcp
+#重启防火墙
+firewall-cmd --reload
