@@ -1,11 +1,51 @@
 CentOS7命令
 
 ###防火墙（firewall）操作命令
+
+#关闭防火墙/停止firewall
+systemctl stop firewalld.service
+
+#禁止firewall开机启动
+systemctl disable firewalld.service
+
 #查询端口是否开放
 firewall-cmd --query-port=端口号/tcp
+
 #开放端口
 firewall-cmd --permanent --add-port=端口号/tcp
+
 #移除端口
 firewall-cmd --permanent --remove-port=端口号/tcp
+
 #重启防火墙
 firewall-cmd --reload
+
+###vi编辑命令
+
+#编辑
+vi /路径/文件名 
+按i键进入insert模式才能进行编辑,按esc键进入command模式
+
+#保存
+wq保存文件并退出
+
+#保存文件但不退出vi
+:w
+
+#将修改另存到file中，不退出vi
+:w file
+
+#强制保存并退出vi
+:w!
+
+#不保存文件，退出vi
+q:
+
+#不保存文件，强制退出vi
+:q!
+
+#放弃所有修改，从次保存文件开始再编辑
+:e!
+
+
+00:0C:29:E3:9E:5F
