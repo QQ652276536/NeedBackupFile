@@ -1,12 +1,27 @@
 CentOS7命令
 
-###防火墙（firewall）操作命令
+####################################防火墙（firewall）操作命令####################################
 
-#关闭防火墙/停止firewall
+#查看防火墙状态
+firewall-cmd --state
+
+#查看防火墙是否开机自启
+systemctl is-enabled firewalld.service;echo $?
+
+#开启防火墙
+systemctl start firewalld.service
+
+#开机时启动防火墙
+systemctl enable firewalld.service
+
+#关闭防火墙
 systemctl stop firewalld.service
 
-#禁止firewall开机启动
+#禁止防火墙开机启动
 systemctl disable firewalld.service
+
+#查看已经开放的端口
+firewall-cmd --list-port
 
 #查询端口是否开放
 firewall-cmd --query-port=端口号/tcp
@@ -20,7 +35,7 @@ firewall-cmd --permanent --remove-port=端口号/tcp
 #重启防火墙
 firewall-cmd --reload
 
-###vi编辑命令
+####################################文件编辑命令####################################
 
 #编辑
 vi /路径/文件名 
@@ -47,5 +62,13 @@ q:
 #放弃所有修改，从次保存文件开始再编辑
 :e!
 
+####################################文件操作命令####################################
 
-00:0C:29:E3:9E:5F
+#在当前目录新建文件夹
+mkdir 文件夹名
+
+#在当前目录新建多个文件夹
+mkdir 文件夹名 文件夹名
+
+#在指定目录下新建子目录
+mkdir -p 路径/文件夹名
