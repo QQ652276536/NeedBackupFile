@@ -1,0 +1,51 @@
+【Android架构】
+	[Application]一般我们所开发的程序就是基于这个层次上的。
+	[ApplicationFramework]以Java类的形式为应用层提供许多高级的服务，并允许开发者在应用中使用这些服务。
+	[RunTime]属于架构中的第三部分，自下而上的第二层。提供了Dalvik虚拟机的关键组件，类似于Java虚拟机，但专门为Android设计和优化。同时也提供一系列核心库让开发者使用标准的Java语言来编写程序。
+	[Libraries]包含了专门为Android开发的基于Java的程序库。开发者常用的核心库如下:
+		android.app-应用的的基石，提供程序模型的访问
+		android.content-方便程序、组件之间进行内容访问、发布、消息传递
+		android.database-用于访问内容发布者提供的数据，包含SQLite数据库管理类
+		android.opengl-3D图片渲染的API
+		android.os-提供应用访问系统服务的能力，比如进程间通信
+		android.text-在设备显示上渲染和操作文本
+		android.view-用户界面的基础构建模块
+		android.widget-用户界面的组件集合
+		android.webkit-为应用提供内建的Web浏览能力
+	[Linux Kernel]提供了基本的系统功能，比如进程、内存、设备的管理。
+	
+【Android应用程序组件】
+	四个主要组件:
+		[Activity]活动标识，活动代表了一个具有用户界面的单一屏幕。Android的活动是ContextThemeWrapper类的子类。Android系统初始程序是通过活动中的onCraete()回调开始的。存在有一序列的回调方法来启动一个活动，同时有一序列的方法来关闭活动。
+		[Service]后台服务，执行长时间操作的组件。即使应用被销毁也依然可以工作。服务基本上包含两种状态:Started,Bound。如果组件通过startService()启动了服务，则服务是Started状态，可以在后台无限期运行，即使启动它的组件已经销毁。如果组件通过bindService()绑定了服务，则服务是Bound状态，Bound状态的服务提供了一个客户服务器接口来允许组件与服务进行交互。
+		[BroadcastReceiver]简单地响应从其他应用程序或者系统发来的广播消息	
+		[ContentProvider]通过请求从一个应用程序到另一个应用提供程序
+	附件组件:
+		[Fragment]代表活动中的一个行为或者一部分
+		[View]绘制在屏幕上的UI元素
+		[Layout]控制屏幕格式
+		[Intent]组件之间消息的连线
+		[Resource]外部元素，例如字符串资源、常量资源、图片资源等
+		[Manifest]应用程序的配置文件
+	
+【Android项目的文件目录】
+	[src]包含项目中所有.java源文件，默认情况下还包含一个MainActivity.java源文件。
+	[gen]包含由编译器生成的.R文件，引用了项目中所有资源。该文件不能被修改。
+	[bin]包含Android由APT构建的.apk文件，以及程序运行所需要的其它东西。
+	[res/layout]存放用户界面的文件
+	[res/values]存放各种各样的包含一系列资源的xml文件,比如字符串、颜色定义等。
+	AndroidManifest.xml:应用程序的清单文件，描述了应用程序的基础特性，定义它的各种组件。无论开发什么组件都需要在该文件中声明，这个文件是Android系统与应用之间的接口。不声明则无法识别。
+	
+【Activity的生命周期】
+	[onCreate]第一个回调，在Activity第一次创建时调用
+	[onStart]当Activity可见时调用
+	[onResume]当Activity获得焦点时调用,只有当onResume被调用后Activity才会开始运行
+	[onPause]当Activity失去焦点时调用
+	[onStop]当Activity不可见时调用
+	[onDestroy]当Activity销毁时调用
+	[onRestart]当Actiivty被停止(onStop)以后重新打开时调用
+	执行顺序:
+		启动Activity时:onCreate()->onStart()->onResume()
+		关闭Activity时:onPause()->onStop()->onDestroy()
+		暂停Activity时:onPause()->onStop()
+		恢复Activity时:onRestart()->onStart()->onResume()
