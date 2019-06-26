@@ -18,8 +18,8 @@
 	四个主要组件:
 		[Activity]活动标识，活动代表了一个具有用户界面的单一屏幕。Android的活动是ContextThemeWrapper类的子类。Android系统初始程序是通过活动中的onCraete()回调开始的。存在有一序列的回调方法来启动一个活动，同时有一序列的方法来关闭活动。
 		[Service]后台服务，执行长时间操作的组件。即使应用被销毁也依然可以工作。服务基本上包含两种状态:Started,Bound。如果组件通过startService()启动了服务，则服务是Started状态，可以在后台无限期运行，即使启动它的组件已经销毁。如果组件通过bindService()绑定了服务，则服务是Bound状态，Bound状态的服务提供了一个客户服务器接口来允许组件与服务进行交互。
-		[BroadcastReceiver]简单地响应从其他应用程序或者系统发来的广播消息	
-		[ContentProvider]通过请求从一个应用程序到另一个应用提供程序
+		[BroadcastReceiver]用于响应来自其他应用程序或者系统的广播信息。这些消息有时被称为事件或者意图。	
+		[ContentProvider]通过请求从一个应用程序到另一个应用提供数据。这些数据由类ContentResolver的方法来处理。内容提供者可以让内容集中，必要时可以有多个不同的应用程序来访问。内容提供者的行为和数据库很像。
 	附件组件:
 		[Fragment]代表活动中的一个行为或者一部分
 		[View]绘制在屏幕上的UI元素
@@ -49,3 +49,22 @@
 		关闭Activity时:onPause()->onStop()->onDestroy()
 		暂停Activity时:onPause()->onStop()
 		恢复Activity时:onRestart()->onStart()->onResume()
+		
+【Service的生命周期】
+	[onStartCommand]通过startService()来启动服务时，系统调用该方法。如果你实现该方法，你有责任在工作完成时通过stopSelf()或stopService()方法来停止服务。
+	[onBind]通过bindService来启动服务时，系统调用该方法。如果你实现该方法，你需要返回IBinder对象提供一个接口，以便客户与服务通信。如果不允许绑定则直接返回Null。
+	[onUnbind]当中断所有所有服务接口时，系统调用该方法。
+	[onRebind]当新的客户端与服务连接，且之前已经通过onUnbind断开连接时，系统调用该方法。
+	[onCreate]服务通过startService()或onBind()第一次创建的时候，系统调用该方法。
+	
+【BroadcastReceiver】
+	[创建广播接收器]广播接收器需要实现为BroadcastReceiver类的子类，并重写onReceive()方法来接收以Intent对象为参数的信息。
+	[注册广播接收器]通过在AndroidManifest.xml中注册广播接收器来监听制定广播的意图。
+	
+【ConrtentProvider】
+	[onCrate]当提供者被启动时调用
+	[query]该方法从客户端接受请求，结果返回的是指针(Cursor)对象
+	[insert]向内容提供者插入新的记录
+	[delete]从内容提供者中删除已存在的记录
+	[update]更新内容提供者中存在的记录
+	[getType]返回URL的数据类型
