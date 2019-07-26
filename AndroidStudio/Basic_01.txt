@@ -68,3 +68,12 @@
 	[delete]从内容提供者中删除已存在的记录
 	[update]更新内容提供者中存在的记录
 	[getType]返回URL的数据类型
+	
+【Fragment】
+	[onAttach(Activity)]当Fragment与Activity发生关联时调用
+	[onCreateView(LayoutInflater,ViewGroup,Bundle)]创建该Fragment视图
+	[onActivityCreated(Bumdle)]当Activity的onCreate方法返回时调用
+	[onDestoryView()]与onCreateView相对应,视图被移除时调用
+	[onDetach()]与onAttach相对应,当Fragment与Activity取消关联时调用
+	注意:除了onCreateView,其它所有方法如果你重写了都必须调用父类对于该方法的实现
+	
